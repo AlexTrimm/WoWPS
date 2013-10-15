@@ -9,11 +9,11 @@ public class vertex
 	
 	public String loc()
 	{
-		return locationName;
+		return loc;
 	}
 
-	public int compareTo(vertex)
+	public int compareTo(vertex v)
 	{
-		locationName.compareTo(vertex.loc());
+		return loc.compareTo(v.loc());
 	}
 }
