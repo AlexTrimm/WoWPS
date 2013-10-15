@@ -3,8 +3,8 @@
 public class vertex
 {
 	private String loc;
-	private int xCoord;
-	private int yCoord;
+	public double xCoord;
+	public double yCoord;
 	private static enum locType {CITY, DUNGEON};
 	
 	public String loc()
@@ -15,5 +15,12 @@ public class vertex
 	public int compareTo(vertex v)
 	{
 		return loc.compareTo(v.loc());
+	}
+
+	public double distTo(vertex v)
+	{
+		double xDist = v.xCoord-xCoord;
+		double yDist = v.yCoord-yCoord;		
+		return Math.sqrt(Math.pow(xDist,2)+Math.pow(yDist,2));
 	}
 }
