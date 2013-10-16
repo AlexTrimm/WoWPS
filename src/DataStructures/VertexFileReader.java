@@ -9,25 +9,30 @@ public class VertexFileReader {
 	private String filePath;
 	private LinkedList<vertex> vertices;
  
-	public static void main(String[] args) {
-		VertexFileReader reader = new VertexFileReader("vertices.csv");
-		reader.readLines();
-		
-		for (vertex v : reader.vertices()) {
-			System.out.println(v.loc() + " " + v.type() + " " + v.xCoord() +
-				" " + v.yCoord() + " " + v.ID());
-		}
+	public static void main(String[] args)
+	{
+//		VertexFileReader reader =
+//			new VertexFileReader("Eastern Kingdom Coordinates - Sheet1.csv");
+//		reader.readLines();
+//		
+//		for (vertex v : reader.vertices()) {
+//			System.out.println(v.loc() + " " + v.type() + " " + v.xCoord() +
+//				" " + v.yCoord() + " " + v.ID());
+//		}
 	}
 
-	public VertexFileReader(String filePath) {
+	public VertexFileReader(String filePath)
+	{
 		this.filePath = filePath;
 		vertices = new LinkedList<vertex>();
 	}
  
-	public void readLines() {
+	public void readLines()
+	{
 		BufferedReader reader = null;
 		String line = "";
 		int vertexID = 0;
+		vertices.clear();
 
 		try {
 			reader = new BufferedReader(new FileReader(filePath));
@@ -52,7 +57,8 @@ public class VertexFileReader {
 		}
 	}
 
-	private void parseLine(String line, int vertexID) {
+	private void parseLine(String line, int vertexID)
+	{
 		String separator = ",";
 		
 		String[] values = line.split(separator, 4);
@@ -61,7 +67,8 @@ public class VertexFileReader {
 			vertexID));
 	}
 
-	private vertex[] vertices() {
+	private vertex[] vertices()
+	{
 		return vertices.toArray(new vertex[vertices.size()]);
 	}
 }
