@@ -3,7 +3,28 @@
 
 public class directedEdge
 {
-	vertex to;
-	vertex from;
-	int weight;
-}
+	private vertex to;
+	private vertex from;
+	private double weight;
+
+	publix directedEdge(vertex to, vertex from)
+	{
+		this.ti = to;
+		this.from = from;
+		this.weight = to.distTo(from);
+	}
+
+	public vertex to()
+	{
+		return to;
+	}
+
+	public vertex from()
+	{
+		return from;
+	}
+
+	public double weight()
+	{
+		return weight;
+	}

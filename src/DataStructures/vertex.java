@@ -2,9 +2,9 @@ public class vertex
 {
 	private String loc;
 	private String type;
-	public double xCoord;
-	public double yCoord;
-	public int ID;
+	private double xCoord;
+	private double yCoord;
+	private int ID;
 	//private static enum locType {CITY, DUNGEON};
 	
 	public vertex(String loc, String type, double xCoord, double yCoord, int ID)
