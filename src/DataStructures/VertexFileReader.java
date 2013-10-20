@@ -11,14 +11,17 @@ public class VertexFileReader {
  
 	public static void main(String[] args)
 	{
-//		VertexFileReader reader =
-//			new VertexFileReader("Eastern Kingdom Coordinates - Sheet1.csv");
-//		reader.readLines();
-//		
-//		for (vertex v : reader.vertices()) {
-//			System.out.println(v.loc() + " " + v.type() + " " + v.xCoord() +
-//				" " + v.yCoord() + " " + v.ID());
-//		}
+		String vertexFile = "Eastern Kingdom Coordinates - Sheet1.csv";
+		VertexFileReader vertexGenerator = new VertexFileReader(vertexFile);
+		vertexGenerator.generateVertices();
+		vertex[] vertices = vertexGenerator.vertices();
+
+		System.out.println("\n***All vertices generated from '" + vertexFile +
+			"':\n");
+		for (vertex v : vertices) {
+			System.out.println(v.loc() + " | " + v.type() + " | " +
+				v.xCoord() + " | " + v.yCoord() + " | " + v.ID());
+		}
 	}
 
 	public VertexFileReader(String filePath)
@@ -27,7 +30,7 @@ public class VertexFileReader {
 		vertices = new LinkedList<vertex>();
 	}
  
-	public void readLines()
+	public void generateVertices()
 	{
 		BufferedReader reader = null;
 		String line = "";
@@ -39,7 +42,7 @@ public class VertexFileReader {
 			line = reader.readLine();	// skip header
 
 			while ((line = reader.readLine()) != null) {
-				parseLine(line, vertexID);
+				vertices.add(parseLine(line, vertexID));
 				vertexID++;
 			}
 		} catch (FileNotFoundException e) {
@@ -57,17 +60,16 @@ public class VertexFileReader {
 		}
 	}
 
-	private void parseLine(String line, int vertexID)
+	private vertex parseLine(String line, int vertexID)
 	{
 		String separator = ",";
-		
 		String[] values = line.split(separator, 4);
-		vertices.add(new vertex(values[0], values[1],
-			Double.parseDouble(values[2]), Double.parseDouble(values[3]),
-			vertexID));
+
+		return new vertex(values[0], values[1], Double.parseDouble(values[2]),
+			Double.parseDouble(values[3]), vertexID);
 	}
 
-	private vertex[] vertices()
+	public vertex[] vertices()
 	{
 		return vertices.toArray(new vertex[vertices.size()]);
 	}
