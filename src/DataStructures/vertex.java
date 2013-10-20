@@ -25,7 +25,7 @@ public class vertex
 	{
 		double xDist = v.xCoord-xCoord;
 		double yDist = v.yCoord-yCoord;		
-		return Math.	sqrt(Math.pow(xDist,2)+Math.pow(yDist,2));
+		return Math.sqrt(Math.pow(xDist,2)+Math.pow(yDist,2));
 	}
 
 	public String loc()

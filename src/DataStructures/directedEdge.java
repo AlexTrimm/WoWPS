@@ -9,7 +9,7 @@ public class directedEdge
 
 	publix directedEdge(vertex to, vertex from)
 	{
-		this.ti = to;
+		this.to = to;
 		this.from = from;
 		this.weight = to.distTo(from);
 	}
