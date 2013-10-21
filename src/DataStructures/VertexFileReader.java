@@ -35,6 +35,7 @@ public class VertexFileReader {
 		BufferedReader reader = null;
 		String line = "";
 		int vertexID = 0;
+		LinkedList<vertex> scannedVertices = new LinkedList<vertex>();
 		vertices.clear();
 
 		try {
@@ -42,7 +43,7 @@ public class VertexFileReader {
 			line = reader.readLine();	// skip header
 
 			while ((line = reader.readLine()) != null) {
-				vertices.add(parseLine(line, vertexID));
+				scannedVertices.add(parseLine(line, vertexID));
 				vertexID++;
 			}
 		} catch (FileNotFoundException e) {
@@ -58,6 +59,7 @@ public class VertexFileReader {
 				}
 			}
 		}
+		vertices = new LinkedList<vertex>(scannedVertices);
 	}
 
 	private vertex parseLine(String line, int vertexID)
