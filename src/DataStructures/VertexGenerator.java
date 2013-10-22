@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
  
-public class VertexFileReader {
+public class VertexGenerator {
 
 	private String filePath;
 	private LinkedList<vertex> vertices;
@@ -12,7 +12,7 @@ public class VertexFileReader {
 	public static void main(String[] args)
 	{
 		String vertexFile = "Eastern Kingdom Coordinates - Sheet1.csv";
-		VertexFileReader vertexGenerator = new VertexFileReader(vertexFile);
+		VertexGenerator vertexGenerator = new VertexGenerator(vertexFile);
 		vertexGenerator.generateVertices();
 		vertex[] vertices = vertexGenerator.vertices();
 
@@ -24,7 +24,7 @@ public class VertexFileReader {
 		}
 	}
 
-	public VertexFileReader(String filePath)
+	public VertexGenerator(String filePath)
 	{
 		this.filePath = filePath;
 		vertices = new LinkedList<vertex>();
